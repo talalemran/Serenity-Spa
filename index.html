@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa & Wellness</title>
+    <!-- Font Awesome CDN (Official) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
+        :root {
+            --spa-gold: #cba85a;
+            --spa-brown: #a96d37;
+            --spa-dark: #7c3f23;
+            --spa-light-gold: #e6b358;
+            --spa-cream: #f7e29c;
+        }
+        body {
+            font-family: 'Inter', 'Manrope', 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="60" height="60" fill="%23f7e29c"/><circle cx="30" cy="30" r="18" fill="%23e6b358" fill-opacity="0.18"/><circle cx="10" cy="10" r="6" fill="%23cba85a" fill-opacity="0.13"/><circle cx="50" cy="50" r="6" fill="%23a96d37" fill-opacity="0.10"/></svg>');
+            background-blend-mode: lighten;
+            background-size: 120px 120px;
+            min-height: 100vh;
+        }
+        header {
+            background: var(--spa-dark);
+            color: #fff;
+            padding: 0;
+            box-shadow: 0 4px 16px var(--spa-dark)10;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-family: 'Montserrat', 'Manrope', Arial, sans-serif;
+            font-size: 2.2rem;
+            font-weight: bold;
+            letter-spacing: 2.5px;
+            background: linear-gradient(90deg, var(--spa-brown) 40%, var(--spa-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 0 2px 8px #a9743822, 0 1px 0 #fff8f0;
+            position: relative;
+        }
+        .navbar nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-family: 'Manrope', 'Montserrat', Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+        .navbar nav a:hover {
+            color: var(--spa-gold);
+            border-bottom: 2px solid var(--spa-gold);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            justify-content: center;
+        }
+        .hamburger span {
+            height: 4px;
+            background: #fff;
+            margin: 3px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        main {
+            max-width: 950px;
+            margin: 2.5rem auto;
+            background: #fffbe9cc;
+            padding: 2.5rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px var(--spa-dark)10;
+            position: relative;
+            overflow: hidden;
+        }
+        main::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, var(--spa-gold)55 60%, transparent 100%);
+            z-index: 0;
+        }
+        main > * {
+            position: relative;
+            z-index: 1;
+        }
+        #banner {
+            background: linear-gradient(90deg, var(--spa-brown) 60%, var(--spa-gold) 100%);
+            color: #fff;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px var(--spa-dark)07;
+            position: relative;
+            overflow: hidden;
+        }
+        #banner::after {
+            content: '';
+            position: absolute;
+            left: -40px;
+            bottom: -40px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #fffbe9 60%, transparent 100%);
+            opacity: 0.3;
+        }
+        #banner h1 {
+            font-family: 'Manrope', 'Montserrat', Arial, sans-serif;
+            font-size: 2.7rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        #banner p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .card {
+            background: var(--spa-cream);
+            padding: 1.5rem 1rem 1.5rem 1rem;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px var(--spa-dark)08;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 24px var(--spa-dark)15;
+        }
+        .card img {
+            border-radius: 10px;
+            box-shadow: 0 2px 8px var(--spa-dark)10;
+        }
+        .card h2, .card h3 {
+            font-family: 'Manrope', 'Montserrat', Arial, sans-serif;
+        }
+        .card p {
+            font-size: 1.05rem;
+        }
+        #features h2 {
+            font-family: 'Manrope', 'Montserrat', Arial, sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        #features > div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        #features .fa-2x {
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 2px 4px #a9743822);
+        }
+        #features .card {
+            background: #fffbe9;
+            border: 1.5px solid var(--spa-gold);
+        }
+        footer {
+            background: var(--spa-brown);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 -2px 8px var(--spa-dark)07;
+        }
+        @media (max-width: 900px) {
+            .navbar {
+                padding: 1rem;
+            }
+            main {
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            main {
+                padding: 1rem;
+            }
+            .navbar nav {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #7c4a02;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                display: none;
+            }
+            .navbar nav.active {
+                display: flex;
+            }
+            .navbar nav a {
+                padding: 1rem 2rem;
+                width: 100%;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+            .hamburger {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Serenity Spa</div>
+            <nav id="nav-menu">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="hamburger" id="hamburger" aria-label="Open navigation" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Banner Section -->
+        <section id="banner" style="background: linear-gradient(90deg, #a97438 60%, #d2a679 100%); color: #fff; border-radius: 8px; margin-bottom: 2rem; padding: 2.5rem 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(124,74,2,0.07);">
+            <h1 style="font-size:2.5rem; margin-bottom: 1rem;">Welcome to Serenity Spa & Wellness</h1>
+            <p style="font-size:1.25rem; max-width: 600px; margin: 0 auto;">Relax, rejuvenate, and renew your mind and body at our tranquil spa oasis. Experience luxury treatments, soothing massages, and holistic wellness in a peaceful environment designed for your comfort.</p>
+        </section>
+        <h2 id="about">About Serenity Spa</h2>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 1.5rem;">
+            <img src="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Serenity Spa interior" style="border-radius: 14px; box-shadow: 0 2px 12px rgba(124,74,2,0.10); max-width: 320px; width: 100%; flex: 1 1 320px; min-width: 220px; margin-left:auto; margin-right:0; align-self: flex-start; order:2;" />
+            <div style="flex: 2 1 340px; min-width: 220px;">
+                <p>Serenity Spa & Wellness is dedicated to providing a sanctuary where you can escape the stresses of daily life. Our expert therapists and estheticians offer a wide range of services, from therapeutic massages to revitalizing facials, all tailored to your unique needs.</p>
+                <p>Our mission is to help you achieve total well-being through personalized care, natural products, and a calming atmosphere. Whether you seek relaxation, beauty, or holistic healing, Serenity Spa is your destination for self-care and renewal.</p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section id="features" style="margin: 2rem 0;">
+            <h2>Why Choose Serenity Spa?</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+                <div style="flex: 1 1 200px; min-width: 200px; max-width: 300px; background: #fafafa; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.03); padding: 1.5rem; text-align: center;">
+                    <i class="fas fa-leaf fa-2x" style="color: #7c4a02;"></i>
+                    <h3>Natural Products</h3>
+                    <p>We use only the finest natural and organic products for your skin and body.</p>
+                </div>
+                <div style="flex: 1 1 200px; min-width: 200px; max-width: 300px; background: #fafafa; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.03); padding: 1.5rem; text-align: center;">
+                    <i class="fas fa-spa fa-2x" style="color: #a97438;"></i>
+                    <h3>Relaxing Atmosphere</h3>
+                    <p>Enjoy a peaceful, beautifully designed space that promotes relaxation and healing.</p>
+                </div>
+                <div style="flex: 1 1 200px; min-width: 200px; max-width: 300px; background: #fafafa; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.03); padding: 1.5rem; text-align: center;">
+                    <i class="fas fa-hands fa-2x" style="color: #5a3310;"></i>
+                    <h3>Expert Therapists</h3>
+                    <p>Our certified professionals are dedicated to your comfort, safety, and well-being.</p>
+                </div>
+            </div>
+        </section>
+        <div class="grid">
+            <div class="card">
+                <img src="https://plus.unsplash.com/premium_photo-1723867490491-10519f8ed969?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Spa stones and flowers" style="width:100%;border-radius:10px;margin-bottom:0.5rem;" />
+                <h3>Tranquil Spaces</h3>
+                <p>Our spa features serene treatment rooms and calming decor to help you unwind from the moment you arrive.</p>
+            </div>
+            <div class="card">
+                <h2>Signature Treatments</h2>
+                <p>Indulge in our signature massages, facials, and body therapies, each designed to restore balance and harmony.</p>
+                <p>We also offer couples packages, aromatherapy, and wellness rituals for a truly personalized experience.</p>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section id="services" style="margin: 3rem 0 2rem 0;">
+            <h2 style="text-align:center; margin-bottom:2rem;">Spa Services & Pricing</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+                <div style="flex: 1 1 260px; min-width: 240px; max-width: 340px; background: #fff8f0; border-radius: 12px; box-shadow: 0 1px 8px rgba(124,74,2,0.09); padding: 2rem 1.5rem; text-align: center;">
+                    <i class="fas fa-spa fa-2x" style="color: #a97438;"></i>
+                    <h3>Massage Therapy</h3>
+                    <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left; font-size:1.05rem;">
+                        <li><i class="fas fa-leaf" style="color:#7c4a02; margin-right:8px;"></i>Swedish Massage <span style="float:right; color:#a97438; font-weight:500;">$70/hr</span></li>
+                        <li><i class="fas fa-fire" style="color:#d2a679; margin-right:8px;"></i>Hot Stone Massage <span style="float:right; color:#a97438; font-weight:500;">$85/hr</span></li>
+                        <li><i class="fas fa-wind" style="color:#5a3310; margin-right:8px;"></i>Aromatherapy <span style="float:right; color:#a97438; font-weight:500;">$80/hr</span></li>
+                        <li><i class="fas fa-hands" style="color:#a97438; margin-right:8px;"></i>Deep Tissue <span style="float:right; color:#a97438; font-weight:500;">$90/hr</span></li>
+                    </ul>
+                </div>
+                <div style="flex: 1 1 260px; min-width: 240px; max-width: 340px; background: #fff8f0; border-radius: 12px; box-shadow: 0 1px 8px rgba(124,74,2,0.09); padding: 2rem 1.5rem; text-align: center;">
+                    <i class="fas fa-leaf fa-2x" style="color: #7c4a02;"></i>
+                    <h3>Facials & Skin Care</h3>
+                    <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left; font-size:1.05rem;">
+                        <li><i class="fas fa-gem" style="color:#d2a679; margin-right:8px;"></i>Signature Facial <span style="float:right; color:#a97438; font-weight:500;">$75</span></li>
+                        <li><i class="fas fa-seedling" style="color:#7c4a02; margin-right:8px;"></i>Anti-Aging Facial <span style="float:right; color:#a97438; font-weight:500;">$90</span></li>
+                        <li><i class="fas fa-sun" style="color:#a97438; margin-right:8px;"></i>Brightening Facial <span style="float:right; color:#a97438; font-weight:500;">$85</span></li>
+                        <li><i class="fas fa-water" style="color:#5a3310; margin-right:8px;"></i>Hydrating Facial <span style="float:right; color:#a97438; font-weight:500;">$80</span></li>
+                    </ul>
+                </div>
+                <div style="flex: 1 1 260px; min-width: 240px; max-width: 340px; background: #fff8f0; border-radius: 12px; box-shadow: 0 1px 8px rgba(124,74,2,0.09); padding: 2rem 1.5rem; text-align: center;">
+                    <i class="fas fa-bath fa-2x" style="color: #5a3310;"></i>
+                    <h3>Body Treatments</h3>
+                    <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left; font-size:1.05rem;">
+                        <li><i class="fas fa-leaf" style="color:#7c4a02; margin-right:8px;"></i>Body Scrub <span style="float:right; color:#a97438; font-weight:500;">$65</span></li>
+                        <li><i class="fas fa-water" style="color:#5a3310; margin-right:8px;"></i>Detox Wrap <span style="float:right; color:#a97438; font-weight:500;">$80</span></li>
+                        <li><i class="fas fa-spa" style="color:#a97438; margin-right:8px;"></i>Aromatherapy Wrap <span style="float:right; color:#a97438; font-weight:500;">$85</span></li>
+                    </ul>
+                </div>
+                <div style="flex: 1 1 260px; min-width: 240px; max-width: 340px; background: #fff8f0; border-radius: 12px; box-shadow: 0 1px 8px rgba(124,74,2,0.09); padding: 2rem 1.5rem; text-align: center;">
+                    <i class="fas fa-heart fa-2x" style="color: #d2a679;"></i>
+                    <h3>Wellness Packages</h3>
+                    <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left; font-size:1.05rem;">
+                        <li><i class="fas fa-user-friends" style="color:#a97438; margin-right:8px;"></i>Couples Retreat <span style="float:right; color:#a97438; font-weight:500;">$180</span></li>
+                        <li><i class="fas fa-gift" style="color:#d2a679; margin-right:8px;"></i>Spa Day Package <span style="float:right; color:#a97438; font-weight:500;">$220</span></li>
+                        <li><i class="fas fa-leaf" style="color:#7c4a02; margin-right:8px;"></i>Holistic Ritual <span style="float:right; color:#a97438; font-weight:500;">$150</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="contact" style="margin-top:2rem;">
+            <h2>Contact & Bookings</h2>
+            <p>Ready to treat yourself? Contact Serenity Spa & Wellness to book your appointment or ask about our services.</p>
+            <p>Email: info@serenityspa.com
+                <br>
+                Phone: (555) 123-4567
+                <br>
+                Address: 456 Harmony Lane, Tranquility City, USA
+            </p>
+            <p>Follow us on social media for wellness tips and special offers!</p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Serenity Spa & Wellness. All rights reserved.
+    </footer>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        // Accessibility: allow Enter/Space to toggle menu
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                navMenu.classList.toggle('active');
+            }
+        });
+    </script>
+</body>
+</html>
