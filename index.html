@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serenity Spa & Wellness</title>
     <meta name="description" content="Relax, rejuvenate, and renew your mind and body at Serenity Spa & Wellness. Experience luxury treatments, soothing massages, and holistic wellness in a peaceful environment.">
+    <!-- Preload LCP image early -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
     <!-- Preload Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +21,6 @@
     <noscript>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     </noscript>
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
         :root {
@@ -250,11 +251,11 @@
                 <a href="#services">Services</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <div class="hamburger" id="hamburger" aria-label="Open navigation" tabindex="0">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation" tabindex="0" type="button">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
         </div>
     </header>
     <main>
