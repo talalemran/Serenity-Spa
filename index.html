@@ -5,8 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serenity Spa & Wellness</title>
     <meta name="description" content="Relax, rejuvenate, and renew your mind and body at Serenity Spa & Wellness. Experience luxury treatments, soothing massages, and holistic wellness in a peaceful environment.">
-    <!-- Font Awesome CDN (Official) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Preload Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap">
+    </noscript>
+    <!-- Preload Font Awesome -->
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </noscript>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
         :root {
@@ -366,13 +378,12 @@
     <footer>
         &copy; 2025 Serenity Spa & Wellness. All rights reserved.
     </footer>
-    <script>
+    <script defer>
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
-        // Accessibility: allow Enter/Space to toggle menu
         hamburger.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 navMenu.classList.toggle('active');
