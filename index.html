@@ -19,6 +19,7 @@
     <noscript>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     </noscript>
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@400;700&family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap');
         :root {
@@ -128,31 +129,17 @@
             z-index: 1;
         }
         #banner {
-            background: linear-gradient(90deg, var(--spa-brown) 60%, var(--spa-gold) 100%);
+            background: linear-gradient(90deg, #a97438 60%, #d2a679 100%);
             color: #fff;
-            border-radius: 12px;
+            border-radius: 8px;
             margin-bottom: 2rem;
             padding: 2.5rem 1.5rem;
             text-align: center;
-            box-shadow: 0 2px 8px var(--spa-dark)07;
-            position: relative;
-            overflow: hidden;
-        }
-        #banner::after {
-            content: '';
-            position: absolute;
-            left: -40px;
-            bottom: -40px;
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, #fffbe9 60%, transparent 100%);
-            opacity: 0.3;
+            box-shadow: 0 2px 8px rgba(124,74,2,0.07);
         }
         #banner h1 {
-            font-family: 'Manrope', 'Montserrat', Arial, sans-serif;
-            font-size: 2.7rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
-            letter-spacing: 2px;
         }
         #banner p {
             font-size: 1.25rem;
@@ -272,13 +259,19 @@
     </header>
     <main>
         <!-- Banner Section -->
-        <section id="banner" style="background: linear-gradient(90deg, #a97438 60%, #d2a679 100%); color: #fff; border-radius: 8px; margin-bottom: 2rem; padding: 2.5rem 1.5rem; text-align: center; box-shadow: 0 2px 8px rgba(124,74,2,0.07);">
-            <h1 style="font-size:2.5rem; margin-bottom: 1rem;">Welcome to Serenity Spa & Wellness</h1>
-            <p style="font-size:1.25rem; max-width: 600px; margin: 0 auto;">Relax, rejuvenate, and renew your mind and body at our tranquil spa oasis. Experience luxury treatments, soothing massages, and holistic wellness in a peaceful environment designed for your comfort.</p>
+        <section id="banner">
+            <h1>Welcome to Serenity Spa & Wellness</h1>
+            <p>Relax, rejuvenate, and renew your mind and body at our tranquil spa oasis. Experience luxury treatments, soothing massages, and holistic wellness in a peaceful environment designed for your comfort.</p>
         </section>
         <h2 id="about">About Serenity Spa</h2>
         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-bottom: 1.5rem;">
-            <img src="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Serenity Spa interior" style="border-radius: 14px; box-shadow: 0 2px 12px rgba(124,74,2,0.10); max-width: 320px; width: 100%; flex: 1 1 320px; min-width: 220px; margin-left:auto; margin-right:0; align-self: flex-start; order:2;" />
+            <img
+  src="https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  alt="Serenity Spa interior"
+  width="320"
+  height="213"
+  style="border-radius: 14px; box-shadow: 0 2px 12px rgba(124,74,2,0.10); max-width: 320px; width: 100%; flex: 1 1 320px; min-width: 220px; margin-left:auto; margin-right:0; align-self: flex-start; order:2;"
+/>
             <div style="flex: 2 1 340px; min-width: 220px;">
                 <p>Serenity Spa & Wellness is dedicated to providing a sanctuary where you can escape the stresses of daily life. Our expert therapists and estheticians offer a wide range of services, from therapeutic massages to revitalizing facials, all tailored to your unique needs.</p>
                 <p>Our mission is to help you achieve total well-being through personalized care, natural products, and a calming atmosphere. Whether you seek relaxation, beauty, or holistic healing, Serenity Spa is your destination for self-care and renewal.</p>
